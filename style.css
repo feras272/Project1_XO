@@ -1,16 +1,49 @@
 #all {
     display: grid;
     justify-content: center;
+    background-color: #F2F4F8;
+    padding: 30px;
+    border-radius: 12px;
 }
 
 #board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    background-color: #E2EEF3;
 }
 
 .cell {
     width: 100px;
     height: 100px;
     border: solid dimgray 2px;
+}
+
+p{
+    text-align: center;
+}
+
+#turn {
+    color: #19323C;
+    background-color: #EBF5FF;
+    padding: 4px;
+    border-radius: 6px;
+    border: #19323C solid 1px;
+}
+
+#winner {
+    background-color: #7EB4C9;
+    color: #19323C;
+    padding: 4px;
+    border-radius: 6px;
+    border: #19323C solid 1px;
+}
+
+#restart {
+    color: #19323C;
+    background-color: #BBC8DD;
+    padding: 4px;
+    border-radius: 6px;
+    border: #19323C solid 1px;
+    margin: 15px;
 }
