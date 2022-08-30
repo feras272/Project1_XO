@@ -11,11 +11,16 @@ $(document).ready(function () {
     const winner = $('#winner');
     let playerWin = $('#player');
     const restart = $('#restart');
-    const dots = $('#dots')
+    const playerTurn = $('#playerTurn');
+    let squares = [];
     let counter = 0
     const X = 'X'
     const O = 'O'
-    const playerTurn = $('#playerTurn');
+    
+
+    cells.click(cellClicked)
+
+    
 
     function cellClicked() {
     
@@ -42,8 +47,63 @@ $(document).ready(function () {
             winner.text('Game Finished');
             return;
         }
+
+        whoWins();
     }
 
-    cells.click(cellClicked)
+    function endTheGame(cell1, cell2, cell3) {
+        // const winner = squares[cell1].text();
+        // playerWin.text(winner + ' Winner');
+        winner.text('Player ' + squares[cell1].text() + ' Wins')
+        winner.css('background-color', '#7EB4C9')
+        winner.css('border', '#19323C solid 1px')
+        $('#cell' + cell1).css('background-color', '#lightgreen');
+        $('#cell' + cell2).css('background-color', '#lightgreen');
+        $('#cell' + cell3).css('background-color', '#lightgreen');
+
+        setInterval(function () {winner.append(' .')},1000)
+        setTimeout(function () {location.reload()},4000);
+        counter = 9
+    }
+
+    function whoWins() {
+        for(let i = 1; i < 10; i++) {
+            squares[i] = $('#cell' + i)
+        }
+        if(squares[1].text() == squares[2].text() && squares[2].text() == squares[3].text() && squares[1].text() != '') {
+            console.log('Done')
+            endTheGame(1,2,3);
+        }
+        else if(squares[4].text() == squares[5].text() && squares[5].text() == squares[6].text() && squares[4].text() != '') {
+            console.log('Done')
+            endTheGame(4,5,6);
+        }
+        else if(squares[7].text() == squares[8].text() && squares[8].text() == squares[9].text() && squares[7].text() != '') {
+            console.log('Done')
+            endTheGame(7,8,9);
+        }
+        else if(squares[1].text() == squares[4].text() && squares[4].text() == squares[7].text() && squares[1].text() != '') {
+            console.log('Done')
+            endTheGame(1,4,7);
+        }
+        else if(squares[2].text() == squares[5].text() && squares[5].text() == squares[8].text() && squares[2].text() != '') {
+            console.log('Done')
+            endTheGame(2,5,8);
+        }
+        else if(squares[3].text() == squares[6].text() && squares[6].text() == squares[9].text() && squares[3].text() != '') {
+            console.log('Done')
+            endTheGame(3,6,9);
+        }
+        else if(squares[1].text() == squares[5].text() && squares[5].text() == squares[9].text() && squares[1].text() != '') {
+            console.log('Done')
+            endTheGame(1,5,9);
+        }
+        else if(squares[3].text() == squares[5].text() && squares[5].text() == squares[7].text() && squares[3].text() != '') {
+            console.log('Done')
+            endTheGame(3,5,7); 
+        }
+    }
+
+    
 
 })
