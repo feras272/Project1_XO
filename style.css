@@ -32,11 +32,11 @@ p{
 }
 
 #winner {
-    background-color: #7EB4C9;
+    /* background-color: #7EB4C9; */
     color: #19323C;
     padding: 4px;
     border-radius: 6px;
-    border: #19323C solid 1px;
+    /* border: #19323C solid 1px; */
 }
 
 #restart {

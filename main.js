@@ -6,4 +6,10 @@ $(document).ready(function () {
 
     console.log($(this));
 
+    const turn = $('#turn');
+    const cells = $('.cell');
+    const winner = $('#winner');
+    let playerWin = $('#player')
+    const restart = $('#restart')
+
 })
