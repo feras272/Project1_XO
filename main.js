@@ -16,11 +16,12 @@ $(document).ready(function () {
     let counter = 0
     const X = 'X'
     const O = 'O'
+    let gameFinished = false
     
 
     cells.click(cellClicked)
 
-    
+    restart.click(restartTheGame)
 
     function cellClicked() {
     
@@ -43,12 +44,16 @@ $(document).ready(function () {
            },250); // for 0.25s = 250ms
         }
 
-        if(counter >= 9) {
+        whoWins();
+
+        if(counter >= 9 && whoWins() == false) {
             winner.text('Game Finished');
+            setInterval(function () {winner.append(' .')},1000)
+            setTimeout(function () {location.reload()},4000);
             return;
         }
 
-        whoWins();
+        
     }
 
     function endTheGame(cell1, cell2, cell3) {
@@ -64,6 +69,7 @@ $(document).ready(function () {
         setInterval(function () {winner.append(' .')},1000)
         setTimeout(function () {location.reload()},4000);
         counter = 9
+        gameFinished = true
     }
 
     function whoWins() {
@@ -102,7 +108,13 @@ $(document).ready(function () {
             console.log('Done')
             endTheGame(3,5,7); 
         }
+        return gameFinished;
     }
+
+    function restartTheGame() {
+        location.reload(true);
+    }
+
 
     
 
