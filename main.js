@@ -9,22 +9,24 @@ $(document).ready(function () {
     const turn = $('#turn');
     const cells = $('.cell');
     const winner = $('#winner');
-    let playerWin = $('#player')
-    const restart = $('#restart')
+    let playerWin = $('#player');
+    const restart = $('#restart');
+    const dots = $('#dots')
     let counter = 0
     const X = 'X'
     const O = 'O'
+    const playerTurn = $('#playerTurn');
 
     function cellClicked() {
     
         if($(this).text() === '' && counter % 2 == 0 && counter <9) {
             $(this).text(X)
-            turn.text(O)
+            playerTurn.text(' ' + O)
             counter++;
         } 
         else if($(this).text() === '' && counter % 2 !== 0 && counter <9) {
             $(this).text(O)
-            turn.text(X)
+            playerTurn.text(' ' + X)
             counter++;
             
 

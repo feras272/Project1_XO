@@ -17,10 +17,15 @@
     width: 100px;
     height: 100px;
     border: solid dimgray 2px;
+    text-align: center;
+    font-size: 75px;
+    color: #19323C;
 }
 
 p{
     text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #19323C;
 }
 
 #turn {
